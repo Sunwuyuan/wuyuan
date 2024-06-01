@@ -6,13 +6,12 @@
 </template>
 <script setup lang="ts">
 useHead({
-  title: 'wuyuan',
+  title: '孙悟元',
   meta: [
-    { name: 'description', content: 'wuyuan' }
+    { name: 'description', content: '孙悟元' }
   ],
   htmlAttrs: {
     class: 'mdui-theme-dark',
-    //style: 'background-image: url("/624f42a6452944fb8b6f.png")'
   },
   //script: [ { innerHTML: 'console.log(\'Hello world\')' } ]
 })
