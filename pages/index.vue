@@ -33,7 +33,7 @@ import '~/assets/grid.css'
       <div class=" text-xl   mx-auto  font-serif">刀光似月，影渡徘徊</div>
       <br />
      
-      <mdui-card variant="" style="width: 100%;">
+      <mdui-card style="width: 100%;">
 
         <mdui-button icon="public" href="https://blog.wuyuan.dev" target="_blank"
           style="margin-right: 5px;">博客</mdui-button>
