@@ -1,6 +1,6 @@
 <template>
 	<div class="card-wrap" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="card"  @click="openlink">
-	  <div class="card" :style="[cardStyle,cardBgImage]" >
+	  <div class="card" :style="[cardStyle, cardBgImage]" >
 		<div class="card-cover" :style="[cardBgTransform ,cardCoverImage]"></div>
 		
 	  </div>
@@ -45,15 +45,15 @@
 		return this.mouseY / this.height;
 	  },
 	  cardStyle() {
-		const rX = this.mousePX * 30;
-		const rY = this.mousePY * -30;
+		const rX = this.mousePX * 36;
+		const rY = this.mousePY * -36;
 		return {
 		  transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
 		};
 	  },
 	  cardBgTransform() {
-		const tX = this.mousePX * -40;
-		const tY = this.mousePY * -40;
+		const tX = this.mousePX * -64;
+		const tY = this.mousePY * -64;
 		return {
 		  transform: `translateX(${tX}px) translateY(${tY}px)`
 		};
@@ -127,7 +127,7 @@
 	position: relative;
 	/*flex: 0 0 240px;*/
 	width: 100%;
-	height: 300px;
+	aspect-ratio: 16/9;
 	background-color: #333;
 	overflow: hidden;
 	border-radius: 10px;

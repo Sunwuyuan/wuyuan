@@ -48,7 +48,7 @@ import '~/assets/grid.css'
 
       </mdui-card>
     
-      <div class="ui-row">
+      <div class="ui-row" >
         <card3D dataImage="/800px-2.0匹诺康尼.png" class="ui-col-sm-12 ui-col-md-5" coverImage="/画板18.png" href="https://blog.wuyuan.dev"/>
         <card3D dataImage="/624f42a6452944fb8b6f.png" class="ui-col-sm-12 ui-col-md-5" coverImage="/画板19.png" href="https://zerocat.wuyuan.dev"/>
 
