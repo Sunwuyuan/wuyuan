@@ -9,7 +9,7 @@ import '~/assets/grid.css'
 </script>
 
 <template>
-
+<mdui-layout-main>
   <div class="container mx-auto ui-container">
     <div class="  mx-8  my-24 ">
       <svg width="182" height="182" viewBox="0 0 182 182" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,8 @@ import '~/assets/grid.css'
 
 
       </mdui-card>
-      <div style=" " class="ui-row ">
+    
+      <div class="ui-row">
         <card3D dataImage="/800px-2.0匹诺康尼.png" class="ui-col-sm-12 ui-col-md-5" coverImage="/画板18.png" href="https://blog.wuyuan.dev"/>
         <card3D dataImage="/624f42a6452944fb8b6f.png" class="ui-col-sm-12 ui-col-md-5" coverImage="/画板19.png" href="https://zerocat.wuyuan.dev"/>
 
@@ -173,7 +174,7 @@ import '~/assets/grid.css'
 
     </div>
   </div>
-  <!-- Filled -->
+</mdui-layout-main>
   <link href="https://fonts.font.im/icon?family=Material+Icons" rel="stylesheet">
 </template>
 
