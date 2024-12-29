@@ -5,14 +5,11 @@
     font-style: normal;
 }
 
-body {
-    font-family: 'Noto Serif SC', serif;
-}
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.font.im/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
+    src: url(./flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
   }
 
   .material-icons {
@@ -28,3 +25,7 @@ body {
     word-wrap: normal;
     direction: ltr;
   }
+
+body {
+    font-family: 'Noto Serif SC', serif;
+}
