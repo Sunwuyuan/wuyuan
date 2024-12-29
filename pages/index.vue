@@ -46,8 +46,8 @@ import "~/assets/fonts.css";
         </defs>
       </svg>
       <div
-        class="font-semibold text-3xl sm:text-4xl lg:text-5xl !leading-tight tracking-tight dark:text-white mt-6"
-      >
+        class="font-bold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight dark:text-white mt-6"
+1      >
         孙悟元
       </div>
       <div class="text-xl mx-auto">鸷鸟之不群兮，自前世而固然。</div>
