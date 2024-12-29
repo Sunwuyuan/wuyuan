@@ -5,14 +5,10 @@ import 'mdui';
 import { setColorScheme } from 'mdui/functions/setColorScheme.js';
 setColorScheme('#3a8cd6');
 import '~/assets/grid.css'
-
+import '~/assets/fonts.css'
 </script>
 
 <template>
-  <link href="https://fonts.font.im/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&family=Noto+Serif+TC&display=swap" rel="stylesheet">
   <div class="container mx-auto ui-container">
     <div class="  mx-8  my-24 ">
       <svg width="182" height="182" viewBox="0 0 182 182" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -31,11 +27,11 @@ import '~/assets/grid.css'
         </defs>
       </svg>
       <div
-        class="text-slate-900 font-extrabold text-3xl sm:text-4xl lg:text-5xl !leading-tight tracking-tight dark:text-white mt-6 font-serif">
+        class="font-semibold text-3xl sm:text-4xl lg:text-5xl !leading-tight tracking-tight dark:text-white mt-6 ">
         孙悟元</div>
-      <div class=" text-xl   mx-auto  font-serif">刀光似月，影渡徘徊</div>
+      <div class=" text-xl   mx-auto  ">刀光似月，影渡徘徊</div>
       <br />
-     
+
       <mdui-card variant="" style="width: 100%;">
 
         <mdui-button icon="public" href="https://blog.wuyuan.dev" target="_blank"
@@ -63,7 +59,7 @@ import '~/assets/grid.css'
 
 
 
-          <div class=" text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white mt-6 font-serif">你好，我是孙悟元</div>
+          <div class=" text-3xl sm:text-4xl lg:text-5xl tracking-tight dark:text-white mt-6 ">你好，我是孙悟元</div>
           <p class="text-base" style="margin-left: 0.2rem"> 来自中国初中学生,<br />代码写的不是很好，也不经常在线，如果需要联系请发邮件给sun@wuyuan.dev
           </p>
 
