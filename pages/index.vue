@@ -9,7 +9,10 @@ import '~/assets/grid.css'
 </script>
 
 <template>
-
+  <link href="https://fonts.font.im/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&family=Noto+Serif+TC&display=swap" rel="stylesheet">
   <div class="container mx-auto ui-container">
     <div class="  mx-8  my-24 ">
       <svg width="182" height="182" viewBox="0 0 182 182" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +177,7 @@ import '~/assets/grid.css'
     </div>
   </div>
   <!-- Filled -->
-  <link href="https://fonts.font.im/icon?family=Material+Icons" rel="stylesheet">
+
 </template>
 
 <style>
