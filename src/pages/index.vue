@@ -1,36 +1,36 @@
 <template>
   <div class="container mx-auto " style="max-width: 1280px;">
     <div class="mx-8 my-24">
-      <LogoSvg image-url="/src/assets/sitelogo.png" />
+      <LogoSvg image-url="/src/assets/sitelogo.png" class="animate-fade-in " />
       <div
-        class="font-bold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight dark:text-white mt-6"
+        class="font-bold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight dark:text-white mt-6 animate-slide-up"
       >
         {{ profile.name }}
       </div>
-      <div class="text-xl sm:text-2xl lg:text-3xl mx-auto">
+      <div class="text-xl sm:text-2xl lg:text-3xl mx-auto animate-slide-up-delay">
         {{ profile.motto }}
       </div>
       <br />
 
-      <mdui-card style="width: 100%">
+
         <mdui-button
           v-for="link in quickLinks"
           :key="link.url"
           :icon="link.icon"
           :href="link.url"
           target="_blank"
-          style="margin-right: 5px; font-weight: bold"
+          class="quick-link-btn"
           >{{ link.text }}</mdui-button
         >
-      </mdui-card>
+
 
       <br />
       <!-- ZeroCat Card -->
-      <ZeroCatCard />
-      <ClassworksCard />
+      <ZeroCatCard class="shadow-elegant"/>
+      <ClassworksCard class="shadow-elegant"/>
       <br />
 
-      <mdui-card variant="filled" style="width: 100%; padding: 1rem">
+      <mdui-card variant="filled" style="width: 100%; padding: 1rem" class="shadow-elegant">
         <img :src="githubSnake" />
         <div
           style="width: 100%; padding: 0.5rem; margin-top: 1rem"
@@ -52,6 +52,7 @@
         <mdui-card
           variant="elevated"
           style="width: 100%; padding: 0.5rem; margin-top: 1rem"
+          class="shadow-elegant"
         >
           <mdui-list>
             <mdui-list-subheader>{{
@@ -97,6 +98,7 @@
         <mdui-card
           variant="elevated"
           style="width: 100%; padding: 0.5rem; margin-top: 1rem"
+          class="shadow-elegant"
         >
           <mdui-list>
             <mdui-list-subheader>{{
@@ -144,6 +146,7 @@
         <mdui-card
           variant="elevated"
           style="width: 100%; padding: 0.5rem; margin-top: 1rem"
+          class="shadow-elegant"
         >
           <mdui-list>
             <mdui-list-subheader>{{
@@ -192,6 +195,7 @@
         <mdui-card
           variant="elevated"
           style="width: 100%; padding: 0.5rem; margin-top: 1rem"
+          class="shadow-elegant"
         >
           <mdui-list>
             <mdui-list-subheader>{{
@@ -250,6 +254,13 @@ export default {
     LogoSvg,
     ZeroCatCard,
     ClassworksCard,
+  },
+  mounted() {
+    // 为每个卡片添加索引以实现级联动画
+    const cards = document.querySelectorAll('.mdui-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--card-index', index);
+    });
   },
   data() {
     return {
@@ -441,5 +452,126 @@ export default {
 
 :not(:defined) {
   visibility: hidden;
+}
+
+/* 快速链接按钮样式 */
+.quick-link-btn {
+  margin-right: 5px;
+  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.quick-link-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(var(--mdui-color-primary), 0.6);
+}
+
+.quick-link-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(circle at center, rgba(var(--mdui-color-primary), 0.3) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.quick-link-btn:hover::after {
+  opacity: 1;
+}
+
+/* 页面加载动画 */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-slide-up-delay {
+  animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片动画和阴影效果 */
+.shadow-elegant {
+  box-shadow:
+    0px 0px 0px 1px rgba(14, 63, 126, 0.05),
+    0px 2px 2px -1px rgba(42, 51, 70, 0.05),
+    0px 4px 4px -2px rgba(42, 51, 70, 0.05),
+    0px 8px 8px -4px rgba(42, 51, 70, 0.05),
+    0px 16px 16px -8px rgba(14, 63, 126, 0.05),
+    0px 32px 32px -16px rgba(14, 63, 126, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shadow-elegant:hover {
+  box-shadow:
+    0px 0px 0px 1px rgba(14, 63, 126, 0.1),
+    0px 4px 4px -1px rgba(42, 51, 70, 0.1),
+    0px 8px 8px -2px rgba(42, 51, 70, 0.1),
+    0px 16px 16px -4px rgba(42, 51, 70, 0.1),
+    0px 32px 32px -8px rgba(14, 63, 126, 0.1),
+    0px 64px 64px -16px rgba(14, 63, 126, 0.1);
+}
+
+.mdui-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 列表项动画 */
+.mdui-list-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdui-list-item:hover {
+  transform: translateX(8px);
+  background-color: rgba(var(--mdui-color-primary), 0.15);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 折叠面板动画 */
+.mdui-collapse-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdui-collapse-item[open] {
+  animation: expandCollapse 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes expandCollapse {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
