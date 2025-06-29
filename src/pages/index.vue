@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto " style="max-width: 1280px;">
     <div class="mx-8 my-24">
-      <LogoSvg image-url="/src/assets/sitelogo.png" class="animate-fade-in " />
+      <img src="/src/assets/avatar.svg" class="animate-fade-in " />
       <div
         class="font-bold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight dark:text-white mt-6 animate-slide-up"
       >
@@ -11,8 +11,6 @@
         {{ profile.motto }}
       </div>
       <br />
-
-
         <mdui-button
           v-for="link in quickLinks"
           :key="link.url"
@@ -22,8 +20,6 @@
           class="quick-link-btn"
           >{{ link.text }}</mdui-button
         >
-
-
       <br />
       <!-- ZeroCat Card -->
       <ZeroCatCard class="shadow-elegant"/>
@@ -245,13 +241,11 @@
 
 <script>
 import "@/style/grid.css";
-import LogoSvg from "@/components/LogoSvg.vue";
 import ZeroCatCard from "@/components/ZeroCatCard.vue";
 import ClassworksCard from "@/components/ClassworksCard.vue";
 export default {
   name: "IndexPage",
   components: {
-    LogoSvg,
     ZeroCatCard,
     ClassworksCard,
   },

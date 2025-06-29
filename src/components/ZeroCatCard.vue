@@ -1,5 +1,5 @@
 <template>
-  <mdui-card variant="filled" class="zerocat-card" href="https://zerocat.dev" target="_blank">
+  <mdui-card variant="filled" class="zerocat-card" target="_blank">
     <!-- Header Section -->
     <div class="card-header">
       <img
