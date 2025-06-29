@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto " style="max-width: 1280px;">
     <div class="mx-8 my-24">
-      <LogoSvg image-url="src/assets/sitelogo.png" />
+      <LogoSvg image-url="/src/assets/sitelogo.png" />
       <div
         class="font-bold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight dark:text-white mt-6"
       >
@@ -240,8 +240,7 @@
 </template>
 
 <script>
-import "@/assets/grid.css";
-import "@/assets/fonts.css";
+import "@/style/grid.css";
 import LogoSvg from "@/components/LogoSvg.vue";
 import ZeroCatCard from "@/components/ZeroCatCard.vue";
 import ClassworksCard from "@/components/ClassworksCard.vue";
