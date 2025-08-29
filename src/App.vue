@@ -11,6 +11,9 @@ import { setColorScheme } from "mdui/functions/setColorScheme.js";
 
 setColorScheme("#3a8cd6");
 </script>
+
 <style>
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 </style>

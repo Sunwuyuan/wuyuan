@@ -11,15 +11,18 @@
   "dependencies": {
     "@mdui/icons": "^1.0.3",
     "mdui": "^2.1.4",
+    "unplugin-fonts": "^1.4.0",
+    "vite-plugin-pages": "^0.33.1",
+    "vite-plugin-vue-layouts-next": "^1.0.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.12",
     "@vitejs/plugin-vue": "^6.0.1",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
     "unplugin-auto-import": "^20.1.0",
     "unplugin-vue-components": "^29.0.0",
     "unplugin-vue-router": "^0.15.0",
