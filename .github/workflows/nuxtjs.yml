@@ -62,7 +62,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: hly-pages
-        uses: Sunwuyuan/deploy-hlpages@1.0.0
+        uses: Sunwuyuan/deploy-hlpages@v1.0.0
         with:
           api_token: ${{ secrets.HLY_APITOKEN }}
           site_id: '2ae61e33782676509ec1a78b0ff967b219e4c9094ad8e53c7b5b224071a22cd6'
