@@ -276,7 +276,7 @@ export default {
       introduction: {
         greeting: "你好，我是孙悟元",
         description:
-          "来自中国初中学生,<br />代码写的不是很好，也不经常在线，如果需要联系请发邮件给sun@wuyuan.dev",
+          "来自中国的高中学生,<br />代码写的不是很好，也不经常在线，如果需要联系请发邮件给sun@wuyuan.dev",
       },
       sections: {
         personal: {
