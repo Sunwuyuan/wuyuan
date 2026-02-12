@@ -56,7 +56,7 @@ onMounted(() => {
           :href="link.href"
           target="_blank"
           rel="noreferrer"
-          class="hero-btn bento-card group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-white/30 hover:bg-white/20 active:scale-100"
+          class="hero-btn hero-pill group inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all duration-300 hover:scale-[1.03] active:scale-100"
           style="font-family: 'Noto Serif SC', serif;"
         >
           <AppIcon

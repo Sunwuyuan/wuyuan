@@ -14,7 +14,7 @@ defineProps<{
     :href="product.href"
     target="_blank"
     rel="noreferrer"
-    class="section-reveal bento-card group block overflow-hidden rounded-2xl border border-border/60 bg-card/85 shadow-sm backdrop-blur-sm transition-colors hover:bg-card/95"
+    class="section-reveal bento-card group block overflow-hidden rounded-xl"
   >
     <div class="relative aspect-[16/7] w-full overflow-hidden bg-muted">
       <img
@@ -23,25 +23,25 @@ defineProps<{
         :alt="product.name"
         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/5" />
       <div class="absolute bottom-0 left-0 right-0 flex items-end justify-between p-6 sm:p-8">
         <div class="flex items-end gap-4">
           <img
             :src="product.logo"
             :alt="`${product.name} logo`"
-            class="h-14 w-14 rounded-2xl border border-border/40 bg-card/90 p-2 shadow-lg sm:h-16 sm:w-16"
+            class="h-14 w-14 rounded-xl border border-white/30 bg-white/90 p-2 shadow-lg sm:h-16 sm:w-16"
           />
           <div class="min-w-0">
-            <h2 class="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               {{ product.name }}
             </h2>
-            <p class="mt-1 text-base text-muted-foreground sm:text-lg">
+            <p class="mt-1 text-base text-white/80 sm:text-lg">
               {{ product.slogan }}
             </p>
           </div>
         </div>
         <ArrowUpRight
-          class="hidden h-5 w-5 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:block"
+          class="hidden h-5 w-5 text-white/75 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:block"
         />
       </div>
     </div>

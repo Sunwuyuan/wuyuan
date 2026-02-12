@@ -10,21 +10,24 @@ defineProps<{
 </script>
 
 <template>
-  <section class="section-reveal grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <section
+    class="section-reveal grid gap-5"
+    style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));"
+  >
     <a
       v-for="product in products"
       :key="product.id"
       :href="product.href"
       target="_blank"
       rel="noreferrer"
-      class="bento-card group overflow-hidden rounded-2xl border border-border/60 bg-card/85 shadow-sm backdrop-blur-sm transition-colors hover:bg-card/95"
+      class="bento-card group overflow-hidden rounded-xl"
     >
       <div class="relative aspect-[16/9] w-full overflow-hidden bg-muted">
         <img
           v-if="product.cover"
           :src="product.cover"
           :alt="product.name"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
 
@@ -34,7 +37,7 @@ defineProps<{
             <img
               :src="product.logo"
               :alt="`${product.name} logo`"
-              class="h-10 w-10 rounded-xl border border-border/40 bg-card/90 p-1.5"
+              class="h-10 w-10 rounded-lg border border-border/40 bg-card/90 p-1.5"
             />
             <div class="min-w-0">
               <h3 class="truncate text-base font-semibold">{{ product.name }}</h3>

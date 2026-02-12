@@ -1,110 +1,123 @@
 <script setup lang="ts">
-import { usePreferredDark } from "@vueuse/core";
-import { ArrowUpRight } from "lucide-vue-next";
-import { computed } from "vue";
-
-import AppIcon from "@/components/home/AppIcon.vue";
-import BilibiliCard from "@/components/home/BilibiliCard.vue";
-import GitHubReposCard from "@/components/home/GitHubReposCard.vue";
 import OrganizationsCard from "@/components/home/OrganizationsCard.vue";
-import ReadmeCard from "@/components/home/ReadmeCard.vue";
-import YouTubeCard from "@/components/home/YouTubeCard.vue";
-import type { ContactLink, Organization, SocialEmbed } from "@/types/home";
+import type { Organization } from "@/types/home";
 
-const props = defineProps<{
-  social: SocialEmbed;
-  contacts: ContactLink[];
+interface SceneCard {
+  id: string;
+  category: string;
+  title: string;
+  footer: string;
+  image: string;
+  chips?: string[];
+  action?: string;
+}
+
+defineProps<{
   organizations: {
     current: Organization[];
     past: Organization[];
   };
 }>();
 
-const isDark = usePreferredDark();
+const sceneCards: SceneCard[] = [
+  {
+    id: "starrail",
+    category: "爱好游戏",
+    title: "崩坏：星穹铁道",
+    footer: "国际服 826866884",
+    image: "https://zerocat-bitiful.houlangs.com/assets/61/db/61db461ae5cc36bd4df2f07630f64dfc.jpg",
+  },
+  {
+    id: "vscode",
+    category: "微软大战代码",
+    title: "Visual Studio Code",
+    footer: "Code editing. Redefined.",
+    image: "../src/assets/画板 15.png",
+  },
+  {
+    id: "education",
+    category: "学历",
+    title: "高中（在读）",
+    footer: "不知名学校",
+    image: "../src/assets/xx.png",
+  },
+  {
+    id: "music",
+    category: "音乐偏好",
+    title: "古风",
+    footer: "您在视频下评论『为人民服务』被举报涉嫌违规，经核实已被移除。",
+    image: "../src/assets/jiaoyuan (中).jpeg",
 
-const ghChartUrl = computed(() => {
-  const color = isDark.value ? "2563eb" : "1d4ed8";
-  return `https://ghchart.rshah.org/${color}/${props.social.github.username}`;
-});
+  },
+];
 </script>
 
 <template>
-  <section class="section-reveal grid grid-cols-2 gap-4 sm:grid-cols-4">
-    <!-- GitHub Contributions Chart (full width) -->
-    <a
-      :href="social.github.href"
-      target="_blank"
-      rel="noreferrer"
-      class="bento-card group col-span-2 overflow-hidden rounded-2xl border border-border/60 bg-card/85 shadow-sm backdrop-blur-sm transition-colors hover:bg-card/95 sm:col-span-4"
-    >
-      <div class="p-5 sm:p-6">
-        <div class="mb-4 flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <img
-              :src="`https://github.com/${social.github.username}.png?size=40`"
-              :alt="social.github.username"
-              class="h-8 w-8 rounded-full ring-2 ring-border/40"
-            />
-            <div>
-              <span class="text-sm font-semibold">{{ social.github.username }}</span>
-              <p class="text-xs text-muted-foreground">贡献图</p>
-            </div>
-          </div>
-          <ArrowUpRight
-            class="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
-        </div>
-        <img
-          :src="ghChartUrl"
-          :alt="`${social.github.username} GitHub contributions`"
-          class="w-full"
-        />
-      </div>
-    </a>
-
-    <!-- README (full width) -->
-    <ReadmeCard />
-
-    <!-- GitHub Repos (full width) -->
-    <GitHubReposCard :username="social.github.username" />
-
-    <!-- Organizations (full width) -->
+  <section class="section-reveal grid grid-cols-1 gap-5 md:grid-cols-2">
     <OrganizationsCard
       :current="organizations.current"
       :past="organizations.past"
+      class="h-[18rem] sm:h-[20rem]"
     />
 
-    <!-- YouTube + Bilibili -->
-    <YouTubeCard
-      v-if="social.youtube"
-      :channel-name="social.youtube.channelName"
-      :href="social.youtube.href"
-    />
-    <BilibiliCard
-      v-if="social.bilibili"
-      :username="social.bilibili.username"
-      :href="social.bilibili.href"
-    />
+    <article class="bento-card relative h-[18rem] overflow-hidden rounded-xl sm:h-[20rem]">
+      <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500 via-pink-500 to-rose-500" />
+      <div class="relative flex h-full flex-col p-6 sm:p-7">
+        <p class="text-sm font-semibold text-white/85">座右铭</p>
+        <h3 class="mt-4 text-3xl font-black leading-tight text-white sm:text-5xl">
+鸷鸟之不群兮，<br/>自前世而固然。
 
-    <!-- Contact cards -->
-    <a
-      v-for="contact in contacts"
-      :key="contact.href"
-      :href="contact.href"
-      target="_blank"
-      rel="noreferrer"
-      class="bento-card group flex flex-col justify-between gap-4 rounded-2xl border border-border/60 bg-card/85 p-4 shadow-sm backdrop-blur-sm transition-colors hover:bg-card/95 sm:p-5"
+        </h3>
+        <p class="mt-3 text-lg font-bold text-white/90 sm:text-2xl">
+          离骚 屈原
+        </p>
+      </div>
+    </article>
+
+    <article
+      v-for="card in sceneCards"
+      :key="card.id"
+      class="bento-card group relative h-[18rem] overflow-hidden rounded-xl sm:h-[20rem]"
     >
-      <div class="flex items-center justify-between">
-        <AppIcon :name="contact.icon" class="h-5 w-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-        <ArrowUpRight
-          class="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100"
-        />
+      <img
+        :src="card.image"
+        :alt="card.title"
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
+
+      <div class="relative flex h-full flex-col justify-between p-6 sm:p-7">
+        <div>
+          <p class="text-sm font-semibold text-white/80">{{ card.category }}</p>
+          <h3 class="mt-2 text-4xl font-black leading-tight text-white sm:text-5xl">
+            {{ card.title }}
+          </h3>
+        </div>
+
+        <div class="flex items-end justify-between gap-3">
+          <div>
+            <p class="text-lg font-semibold text-white/90">
+              {{ card.footer }}
+            </p>
+            <div v-if="card.chips?.length" class="mt-3 flex flex-wrap gap-2">
+              <span
+                v-for="chip in card.chips"
+                :key="chip"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-white/15 text-xs font-semibold text-white shadow-sm backdrop-blur-sm"
+              >
+                {{ chip.slice(0, 1) }}
+              </span>
+            </div>
+          </div>
+
+          <span
+            v-if="card.action"
+            class="inline-flex items-center rounded-full border border-white/35 bg-white/15 px-3 py-1.5 text-sm font-semibold text-white/95 backdrop-blur-sm"
+          >
+            {{ card.action }}
+          </span>
+        </div>
       </div>
-      <div class="min-w-0">
-        <p class="text-sm font-semibold">{{ contact.label }}</p>
-        <p v-if="contact.handle" class="mt-0.5 truncate text-xs text-muted-foreground">{{ contact.handle }}</p>
-      </div>
-    </a>
+    </article>
   </section>
 </template>

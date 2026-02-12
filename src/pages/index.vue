@@ -2,6 +2,7 @@
 import FeaturedProductCard from "@/components/home/FeaturedProductCard.vue";
 import HeroSection from "@/components/home/HeroSection.vue";
 import ProductsGrid from "@/components/home/ProductsGrid.vue";
+import ReadmeCard from "@/components/home/ReadmeCard.vue";
 import SocialBento from "@/components/home/SocialBento.vue";
 import { homeContent } from "@/content/home";
 import { useWindowScroll } from "@vueuse/core";
@@ -41,7 +42,8 @@ const bgStyle = computed(() => ({
       <HeroSection :profile="homeContent.profile" />
       <FeaturedProductCard :product="homeContent.featuredProduct" />
       <ProductsGrid :products="homeContent.products" />
-      <SocialBento :social="homeContent.social" :contacts="homeContent.contacts" :organizations="homeContent.organizations" />
+      <ReadmeCard />
+      <SocialBento :organizations="homeContent.organizations" />
     </main>
   </div>
 </template>
