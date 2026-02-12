@@ -1,6 +1,7 @@
 import avatar from "@/assets/avatar.svg";
 import classworksLogo from "@/assets/cslogo.svg";
 import wxqrcode from "@/assets/wxqrcode.jpg";
+import zerocatCover from "@/assets/zerocat-cover.png";
 import zerocatLogo from "@/assets/zerocatlogo.svg";
 import type { HomeContent } from "@/types/home";
 
@@ -35,7 +36,7 @@ export const homeContent: HomeContent = {
     slogan: "新一代开源编程社区",
     description: "Scratch 开源创作社区",
     logo: zerocatLogo,
-    cover: "../src/assets/zerocat-cover.png",
+    cover: zerocatCover,
     href: "https://zerocat.dev",
     repo: "https://github.com/ZeroCatDev/ZeroCat",
     tags: ["开源社区", "Scratch"],

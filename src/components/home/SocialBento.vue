@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import OrganizationsCard from "@/components/home/OrganizationsCard.vue";
+import educationImage from "@/assets/xx.png";
+import musicImage from "@/assets/jiaoyuan (中).jpeg";
+import vscodeImage from "@/assets/画板 15.png";
 import type { Organization } from "@/types/home";
 
 interface SceneCard {
@@ -32,21 +35,21 @@ const sceneCards: SceneCard[] = [
     category: "微软大战代码",
     title: "Visual Studio Code",
     footer: "Code editing. Redefined.",
-    image: "../src/assets/画板 15.png",
+    image: vscodeImage,
   },
   {
     id: "education",
     category: "学历",
     title: "高中（在读）",
     footer: "不知名学校",
-    image: "../src/assets/xx.png",
+    image: educationImage,
   },
   {
     id: "music",
     category: "音乐偏好",
     title: "古风",
     footer: "您在视频下评论『为人民服务』被举报涉嫌违规，经核实已被移除。",
-    image: "../src/assets/jiaoyuan (中).jpeg",
+    image: musicImage,
 
   },
 ];
