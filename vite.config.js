@@ -1,11 +1,6 @@
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
-<<<<<<< HEAD
 import Layouts from "vite-plugin-vue-layouts";
-=======
-import Fonts from "unplugin-fonts/vite";
-import Layouts from "vite-plugin-vue-layouts-next";
->>>>>>> bc0c507ac3db0703e6398866f00599e97d275bda
 import Vue from '@vitejs/plugin-vue'
 
 import VueRouter from "unplugin-vue-router/vite";
