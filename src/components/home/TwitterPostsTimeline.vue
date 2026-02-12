@@ -265,6 +265,14 @@ const simplifyUrl = (rawUrl?: string) => {
   }
 };
 
+const mediaSlotClass = (total: number, index: number) => {
+  const count = Math.min(total, 4);
+  if (count !== 3) return "";
+  if (index === 0) return "slot-left";
+  if (index === 1) return "slot-top-right";
+  return "slot-bottom-right";
+};
+
 const normalizePosts = (source: PostItem[] = []) =>
   source
     .filter((post) => post && !post.is_deleted)
@@ -478,22 +486,27 @@ watch(
               class="tweet-media-grid mt-2"
               :class="`count-${Math.min(post.media.length, 4)}`"
             >
-              <template v-for="media in post.media.slice(0, 4)" :key="media.id">
+              <div
+                v-for="(media, index) in post.media.slice(0, 4)"
+                :key="media.id"
+                class="media-slot"
+                :class="mediaSlotClass(post.media.length, index)"
+              >
                 <video
                   v-if="media.mime_type?.startsWith('video')"
                   :src="normalizeAssetUrl(media.url)"
                   controls
                   preload="metadata"
-                  class="media-item"
+                  class="media-content media-video"
                 />
                 <img
                   v-else
                   :src="normalizeAssetUrl(media.url)"
                   alt=""
                   loading="lazy"
-                  class="media-item object-cover"
+                  class="media-content media-image"
                 />
-              </template>
+              </div>
             </div>
 
             <article
@@ -591,24 +604,88 @@ watch(
 
 .tweet-media-grid {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.45rem;
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .tweet-media-grid.count-1 {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+}
+
+.tweet-media-grid.count-1 .media-slot {
+  width: 100%;
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.tweet-media-grid.count-1 .media-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: left top;
+  border-radius: 0.8rem;
+  border: 1px solid hsla(var(--border) / 0.75);
+  background: hsl(var(--muted));
 }
 
 .tweet-media-grid.count-2,
-.tweet-media-grid.count-3,
 .tweet-media-grid.count-4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.media-item {
-  width: 100%;
-  aspect-ratio: 16 / 10;
+.tweet-media-grid.count-3 {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-areas:
+    "left top-right"
+    "left bottom-right";
+  grid-template-rows: repeat(2, minmax(0, clamp(7.2rem, 18vw, 9.8rem)));
+}
+
+.media-slot {
+  min-width: 0;
+  overflow: hidden;
   border-radius: 0.8rem;
   border: 1px solid hsla(var(--border) / 0.75);
   background: hsl(var(--muted));
+}
+
+.tweet-media-grid.count-3 > .media-slot.slot-left {
+  grid-area: left;
+}
+
+.tweet-media-grid.count-3 > .media-slot.slot-top-right {
+  grid-area: top-right;
+}
+
+.tweet-media-grid.count-3 > .media-slot.slot-bottom-right {
+  grid-area: bottom-right;
+}
+
+.tweet-media-grid.count-2 .media-slot,
+.tweet-media-grid.count-4 .media-slot {
+  aspect-ratio: 16 / 10;
+}
+
+.media-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tweet-media-grid.count-2 .media-content,
+.tweet-media-grid.count-3 .media-content,
+.tweet-media-grid.count-4 .media-content {
+  object-fit: cover;
+  object-position: center;
+}
+
+.media-video {
+  background: #000;
 }
 </style>
