@@ -2,6 +2,9 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import Layouts from "vite-plugin-vue-layouts";
 import Vue from '@vitejs/plugin-vue'
+import fs from "fs";
+import path from "path";
+
 
 import VueRouter from "unplugin-vue-router/vite";
 
@@ -36,5 +39,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
     extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
+  },
+  server: {
+    host: "localhost",
+    port: 5173,
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, "local/localhost+2-key.pem")),
+      cert: fs.readFileSync(path.resolve(__dirname, "local/localhost+2.pem")),
+    },
   },
 })

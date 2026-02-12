@@ -12,7 +12,7 @@ onMounted(() => {
 
 <template>
   <section class="section-reveal">
-    <h2 class="mb-4 text-lg font-semibold tracking-tight text-foreground">README</h2>
+
     <div
       class="readme-content text-sm leading-relaxed text-muted-foreground"
       v-html="renderedHtml"

@@ -1,5 +1,6 @@
 import avatar from "@/assets/avatar.svg";
 import classworksLogo from "@/assets/cslogo.svg";
+import wxqrcode from "@/assets/wxqrcode.jpg";
 import zerocatLogo from "@/assets/zerocatlogo.svg";
 import type { HomeContent } from "@/types/home";
 
@@ -10,26 +11,22 @@ export const homeContent: HomeContent = {
     avatar,
     email: "sun@wuyuan.dev",
     quickLinks: [
-      {
-        label: "Kernyr 社区",
-        href: "https://kernyr.wuyuan.dev",
-        icon: "globe",
-      },
-      {
-        label: "ZeroCat",
+        {
+        label: "零猫社区",
         href: "https://zerocat.dev",
         icon: "globe",
       },
       {
-        label: "GitHub",
-        href: "https://github.com/SunWuyuan",
-        icon: "github",
+        label: "Kernyr",
+        href: "https://kernyr.wuyuan.dev",
+        icon: "globe",
       },
+
       {
-        label: "邮箱",
-        href: "mailto:sun@wuyuan.dev",
-        icon: "mail",
-      },
+        label: "GitHub",
+        href: "https://github.com/Sunwuyuan",
+        icon: "github",
+      }
     ],
   },
   featuredProduct: {
@@ -79,12 +76,12 @@ export const homeContent: HomeContent = {
   ],
   social: {
     github: {
-      username: "SunWuyuan",
-      href: "https://github.com/SunWuyuan",
+      username: "Sunwuyuan",
+      href: "https://github.com/Sunwuyuan",
     },
 
     youtube: {
-      channelName: "SunWuyuan",
+      channelName: "Sunwuyuan",
       href: "https://youtube.com/",
     },
     bilibili: {
@@ -96,9 +93,21 @@ export const homeContent: HomeContent = {
   contacts: [
     {
       label: "GitHub",
-      href: "https://github.com/SunWuyuan",
+      href: "https://github.com/Sunwuyuan",
       icon: "github",
-      handle: "@SunWuyuan",
+      handle: "@Sunwuyuan",
+    },
+    {
+      label: "Bilibili",
+      href: "https://space.bilibili.com/661404066",
+      icon: "tv",
+      handle: "悟元喵",
+    },
+    {
+      label: "知乎",
+      href: "https://www.zhihu.com/people/sunwuyuan",
+      icon: "book-open",
+      handle: "@sunwuyuan",
     },
     {
       label: "Twitter / X",
@@ -118,6 +127,20 @@ export const homeContent: HomeContent = {
       icon: "send",
       handle: "@wuyuandev",
     },
+    {
+      label: "微信公众号（点击查看二维码）",
+      href: "https://weixin.qq.com/",
+      icon: "message-circle",
+      handle: "孙悟元",
+      logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://weixin.qq.com",
+      qrCode: wxqrcode,
+    },
+    {
+      label: "爱发电",
+      href: "https://ifdian.net/a/wydev",
+      icon: "heart",
+      handle: "孙悟元",
+    }
   ],
   organizations: {
     current: [

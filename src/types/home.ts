@@ -84,6 +84,9 @@ export interface ContactLink {
   href: string;
   icon: IconName;
   handle?: string;
+  logo?: string;
+  actionText?: string;
+  qrCode?: string;
 }
 
 export interface HomeContent {
