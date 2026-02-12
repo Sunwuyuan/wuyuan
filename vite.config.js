@@ -40,12 +40,4 @@ export default defineConfig({
     },
     extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
   },
-  server: {
-    host: "localhost",
-    port: 5173,
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, "local/localhost+2-key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "local/localhost+2.pem")),
-    },
-  },
 })
